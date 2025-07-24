@@ -1,0 +1,10 @@
+training:
+  dataset_path: data/babylm/
+  batch_size: 16
+  learning_rate: 5e-5
+  epochs: 5
+  gradient_accumulation_steps: 4
+  mixed_precision: fp16   # 支持 fp16/bf16
+  deepspeed: false
+  fsdp: false
+  checkpoint_dir: checkpoints/
