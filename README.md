@@ -2,15 +2,14 @@
 
 
 
-# GPT-2 模型训练与优化 (Training & Inference Optimization)
+# Qwen/Qwen2.5-7B-Instruct 模型训练与优化 (Training & Inference Optimization)
 
-本项目基于 [mission-impossible-language-models](https://github.com/jkallini/mission-impossible-language-models) 框架，进一步扩展与优化 GPT-2 模型的训练与推理，目标是满足实际业务中 **高效训练 + 快速推理 + 部署落地** 的需求。
+目标是满足实际业务中 **高效训练 + 快速推理 + 部署落地** 的需求。
 
 ## 项目目标
 
 - 在现有 GPT-2 从零训练基础上，加入**混合精度、梯度优化、分布式加速**等训练优化方法；
 - 研究 **推理加速**（TensorRT、ONNX、量化）在电商/NLP场景中的可行性；
-- 结合 **RAG 框架** 实现业务级问答/推荐 Demo，贴合 JD 中电商模型优化需求；
 - 输出可量化的优化效果报告（显存占用、训练速度、推理延迟对比）。
 
 ---
