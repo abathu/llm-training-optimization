@@ -1,0 +1,3 @@
+[submodule "running_script/Multi-GPU-Fine-Training-LLMs"]
+	path = running_script/Multi-GPU-Fine-Training-LLMs
+	url = https://github.com/abathu/llm-training-optimization.git
