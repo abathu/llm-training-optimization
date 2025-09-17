@@ -1,22 +1,53 @@
-compute_environment: LOCAL_MACHINE                                                                                                                                           
-debug: false
-deepspeed_config:
-  deepspeed_multinode_launcher: standard
-  offload_optimizer_device: none
-  offload_param_device: none
-  zero3_init_flag: true
-  zero3_save_16bit_model: true
-  zero_stage: 3
+#### large model version
+
+# compute_environment: LOCAL_MACHINE                                                                                                                                           
+# debug: false
+# deepspeed_config:
+#   deepspeed_multinode_launcher: standard
+#   offload_optimizer_device: none
+#   offload_param_device: none
+#   zero3_init_flag: true
+#   zero3_save_16bit_model: true
+#   zero_stage: 3
+# distributed_type: DEEPSPEED
+# downcast_bf16: 'no'
+# machine_rank: 0
+# main_training_function: main
+# mixed_precision: bf16
+# num_machines: 1
+# num_processes: 2
+# rdzv_backend: static
+# same_network: true
+# tpu_env: []
+# tpu_use_cluster: false
+# tpu_use_sudo: false
+# use_cpu: false
+
+
+
+######----------------------
+# accelerate_config_z2.yaml
+compute_environment: LOCAL_MACHINE
 distributed_type: DEEPSPEED
-downcast_bf16: 'no'
-machine_rank: 0
-main_training_function: main
 mixed_precision: bf16
 num_machines: 1
 num_processes: 2
-rdzv_backend: static
+machine_rank: 0
 same_network: true
-tpu_env: []
-tpu_use_cluster: false
-tpu_use_sudo: false
+rdzv_backend: static
 use_cpu: false
+downcast_bf16: 'no'
+debug: false
+main_training_function: main
+
+deepspeed_config:
+  zero_stage: 2                 # ← 关键
+  overlap_comm: true
+  reduce_scatter: true
+  allgather_bucket_size: 5e8    # 500MB 桶，减小通信调用次数
+  reduce_bucket_size: 5e8
+  offload_optimizer_device: none
+  offload_param_device: none
+  zero3_init_flag: false        # 保留无所谓（仅 z3 用）
+  zero3_save_16bit_model: false
+  deepspeed_multinode_launcher: standard

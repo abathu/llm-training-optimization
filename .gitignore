@@ -164,3 +164,10 @@ cython_debug/
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
+
+
+*.log
+qwen-cail-sft/
+qwen-cail-sft_version1/
+finetuned_cail_results/
+qwen-cail-sft_verison1/
